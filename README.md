@@ -2,7 +2,7 @@
 
 ## 📦 Project Overview
 
-Sapfhight-AI is a Node.js-based application that can be built and packaged into a distributable app.
+Sapfhight-AI is a ai for flights.
 
 ---
 
