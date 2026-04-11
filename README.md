@@ -47,4 +47,4 @@ If you encounter errors, try reinstalling dependencies:
 npm install
 
 ##📄 License
-This project is secure. You need permision to use.
+This project secured. You need permision to use.
