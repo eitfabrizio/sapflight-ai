@@ -16,7 +16,7 @@ npm install
 If the project does not include a dist builder, install one (for example Electron Builder):
 ```bash
 npm install --save-dev electron-builder
-▶️ Build and Package
+##▶️ Build and Package
 
 Follow these steps:
 
@@ -31,7 +31,7 @@ Run the distribution command:
 ```bash
 npm run dist
 
-📁 Output
+##📁 Output
 
 After running the commands:
 
@@ -46,5 +46,5 @@ If you encounter errors, try reinstalling dependencies:
 ```bash
 npm install
 
-📄 License
-This project is open-source and free to use.
+##📄 License
+This project is secure. You need permision to use.
