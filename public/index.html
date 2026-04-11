@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SapFlight AI - Professional</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+
+  <!-- Banner de Actualización -->
+  <div id="update-banner" class="update-banner hidden">
+    <span><i class="fas fa-sparkles"></i> Actualización descargada con éxito.</span>
+    <button id="restart-btn" onclick="restartApp()">Reiniciar App</button>
+  </div>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="overlay">
+    <div class="login-card">
+      <img src="../assets/logo/sapflight_ai_logo.png" alt="Logo" class="login-logo">
+      <h2>SapFlight AI</h2>
+      <p>Inicia sesión para despegar</p>
+      <form id="login-form">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" placeholder="Usuario" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Contraseña" required>
+        </div>
+        <button type="submit" class="login-btn">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="overlay hidden">
+    <div class="modal-card settings-card">
+      <div class="modal-header">
+        <h3><i class="fas fa-cog"></i> Configuración</h3>
+        <button class="close-modal" onclick="toggleSettings()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-group">
+          <label>Nombre de Piloto</label>
+          <input type="text" id="edit-username" class="setting-input" onchange="updateProfileName(this.value)">
+        </div>
+        <div class="setting-group">
+          <label>Modelo de IA</label>
+          <select id="model-select" class="setting-select" onchange="setModel(this.value)">
+            <option value="llama3:8b">Llama 3</option>
+            <option value="mistral">Mistral</option>
+          </select>
+        </div>
+        <div class="setting-group">
+          <label>Idioma</label>
+          <select id="lang-select" class="setting-select" onchange="setLanguage(this.value)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div class="setting-actions">
+          <button class="action-btn" onclick="exportCurrentChat()"><i class="fas fa-download"></i> Guardar Chat</button>
+          <button class="danger-btn" onclick="clearAllHistory()"><i class="fas fa-trash"></i> Borrar Todo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-layout hidden" id="main-app">
+    <!-- BARRA LATERAL REFORZADA -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="../assets/logo/sapflight_ai_logo.png" alt="Logo" class="logo-sm">
+        <span class="brand-name">SapFlight AI</span>
+      </div>
+      
+      <button class="new-chat-btn" onclick="startNewChat()">
+        <i class="fas fa-plus"></i> Nuevo Chat
+      </button>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Menú Principal</div>
+        <button class="nav-item active" onclick="showView('chat')">
+          <i class="fas fa-comment-dots"></i> Chat
+        </button>
+        <button class="nav-item" onclick="showView('history')">
+          <i class="fas fa-history"></i> Historial
+        </button>
+        <button class="nav-item" onclick="showView('flights')">
+          <i class="fas fa-plane"></i> Vuelos Activos
+        </button>
+        <button class="nav-item" onclick="showView('map')">
+          <i class="fas fa-map-marked-alt"></i> Mapa
+        </button>
+        
+        <div class="nav-section-title">Chats Recientes</div>
+        <div id="history-list" class="history-list"></div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="nav-item" onclick="toggleSettings()"><i class="fas fa-sliders-h"></i> Ajustes</button>
+        <button class="nav-item logout-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Salir</button>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-container" id="chat-view">
+      <header class="top-bar">
+        <div class="view-info">
+          <span class="status-dot"></span> <span id="view-title">Chat de Aviación</span>
+        </div>
+        <div class="user-info">
+          <span id="display-username">Piloto</span>
+          <div class="avatar"><i class="fas fa-user"></i></div>
+        </div>
+      </header>
+
+      <div id="chat-container" class="chat-history"></div>
+
+      <div class="input-area">
+        <div class="input-wrapper">
+          <input id="query" placeholder="Escribe tu consulta sobre vuelos..." autofocus>
+          <button onclick="buscar()" id="send-btn" class="send-button">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- OTRAS VISTAS -->
+    <main class="app-container hidden" id="history-view">
+      <header class="top-bar"><span><i class="fas fa-history"></i> Todos tus Chats</span></header>
+      <div id="full-history-list" class="full-history-container"></div>
+    </main>
+
+    <main class="app-container hidden" id="flights-view">
+      <div class="webview-container"><webview id="wv-flights" src="https://www.flightaware.com/live/" allowpopups></webview></div>
+    </main>
+
+    <main class="app-container hidden" id="map-view">
+      <div class="webview-container"><webview id="wv-map" src="https://www.google.com/maps" allowpopups></webview></div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

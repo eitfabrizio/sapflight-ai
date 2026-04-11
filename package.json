@@ -1,0 +1,54 @@
+{
+  "name": "sapflight-ai",
+  "version": "1.0.0",
+  "description": "SapFlight AI Professional Edition",
+  "author": "Fabrizio",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FabrizioDiaz/sapflight-ai.git"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "dist": "electron-builder --win --nsis",
+    "publish": "electron-builder --win --nsis -p always"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "electron-updater": "^6.1.7",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.sapflight.ai",
+    "productName": "SapFlight AI",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/logo/sapflight_ai_logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "SapFlight AI"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "FabrizioDiaz",
+      "repo": "sapflight-ai"
+    }
+  }
+}
