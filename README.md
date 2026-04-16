@@ -1,50 +1,99 @@
-﻿# Sapfhight-AI 🚀
+# Sapflight-AI 🚀
 
 ## 📦 Project Overview
 
-Sapfhight-AI is a ai for flights.
+Sapflight-AI is a local AI chat focused on flight-related interactions.
+It runs using **Node.js + Express** and connects to a **local LLM (like Llama via Ollama or LM Studio)** on the same network.
+
+This allows the app to work **without paid APIs**, using your own computer as the AI server.
+
+---
+
+## 🧠 How It Works
+
+* 📱 The client runs on Android (Termux + Acode)
+* 🖥️ The AI model runs on your PC
+* 🔌 The server connects to the model using a custom OpenAI-compatible API
 
 ---
 
 ## ⚙️ Requirements
 
-Before building the project, install the dependencies:
+Before running the project, install dependencies:
 
 ```bash
 npm install
+```
 
-If the project does not include a dist builder, install one (for example Electron Builder):
+### 🔹 For Local AI (IMPORTANT)
+
+You must have:
+
+* Ollama or LM Studio running on your PC
+* A model like `llama3`
+* Your PC connected to the same Wi-Fi as your device
+
+---
+
+## ▶️ Run the Project
+
+Start the server:
+
+```bash
+node server.js
+```
+
+Then open in your browser:
+
+```
+http://localhost:3000
+```
+
+---
+
+## ⚡ Optional: Electron (Desktop Only)
+
+This project includes Electron files for desktop builds.
+
+To use it:
+
 ```bash
 npm install --save-dev electron-builder
-##▶️ Build and Package
-
-Follow these steps:
-
-Open a terminal as administrator.
-Navigate to the project folder:
-cd path/to/Sapfhight-AI
-Run the build command:
-```bash
 npm run build
-
-Run the distribution command:
-```bash
 npm run dist
+```
 
-##📁 Output
+📁 Output will be in the `dist/` folder
 
-After running the commands:
+⚠️ Note: Electron is **not required** for Android usage.
 
-Build files will be generated.
-The final application will be located in the dist/ folder.
-⚠️ Notes
-Make sure you are inside the correct project directory before running commands.
-If npm run dist does not work, ensure the required builder (like electron-builder) is installed.
-💡 Tip
+---
 
-If you encounter errors, try reinstalling dependencies:
+## ⚠️ Notes
+
+* Make sure your `baseURL` points to your PC IP
+* Example:
+
+```
+http://192.168.x.x:11434/v1
+```
+
+* Both devices must be on the same network
+
+---
+
+## 💡 Tips
+
+If something fails:
+
 ```bash
 npm install
+```
 
-##📄 License
-This project secured. You need permision to use.
+Restart your server and check your model is running.
+
+---
+
+## 📄 License
+
+This project is private. Permission is required to use or distribute.
