@@ -96,4 +96,4 @@ Restart your server and check your model is running.
 
 ## 📄 License
 
-This project is private. Permission is required to use or distribute.
+This project is a delicated ai. Permission is required to use or distribute.
