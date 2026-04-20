@@ -1,1 +1,24 @@
+/* Estilo para la página web de presentación */
+body {
+  background-color: #f6f8fa; /* Color gris claro estilo GitHub */
+  color: #24292f;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1 {
+  color: #0969da; /* Azul SAP/GitHub */
+  border-bottom: 1px solid #d0d7de;
+  padding-bottom: 10px;
+}
+
+.ai-card {
+  background: white;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 3px 6px rgba(140,149,159,0.15);
+}
 
