@@ -1,17 +1,17 @@
 version: 2
 updates:
-  # 1. Revisa actualizaciones de paquetes npm (tu código principal)
+  # Actualizaciones para npm (JavaScript/TypeScript)
   - package-ecosystem: "npm"
-    directory: "/" 
+    directory: "/"
     schedule:
-      interval: "daily" # Busca actualizaciones cada día
-    open-pull-requests-limit: 10 # Máximo 10 PRs abiertos a la vez
+      interval: "daily"
+    open-pull-requests-limit: 10
     labels:
       - "dependencies"
       - "javascript"
 
-  # 2. Revisa actualizaciones de las propias GitHub Actions que usas
+  # Actualizaciones para las propias GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly" # Las acciones cambian menos, una vez por semana basta
+      interval: "weekly"
