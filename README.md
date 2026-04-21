@@ -25,14 +25,8 @@ Before running the project, install dependencies:
 npm install
 ```
 
-### 🔹 For Local AI (IMPORTANT)
-
-You must have:
-
-* Ollama or LM Studio running on your PC
-* A model like `llama3`
-* Your PC connected to the same Wi-Fi as your device
-
+### 🔹 For Local AI (IMPORTANt)
+It will going to aply :)
 ---
 
 ## ▶️ Run the Project
