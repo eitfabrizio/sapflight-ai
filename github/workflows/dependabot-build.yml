@@ -1,0 +1,26 @@
+name: Dependabot Build Test
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # Solo se ejecuta si el PR fue creado por dependabot
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # O la versión que uses
+          cache: 'npm'
+
+      - name: Instalar y Compilar
+        run: |
+          npm install
+          npm run build
+          npm run dist
