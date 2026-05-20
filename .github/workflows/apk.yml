@@ -30,7 +30,7 @@ jobs:
           java-version: '17'
 
       - name: Setup Android
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Sync Capacitor
         run: npx cap sync android
