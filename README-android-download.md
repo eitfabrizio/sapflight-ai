@@ -1,1 +1,2 @@
--- Please, if you like to instal the program in android, first, instal F-Droid here: wordpress.com/sites/instaladorsegurouptodownwordcom.wordpress.com then, search termux, https://drive.google.com/file/d/1_rbZlSOTcHLry6cMQ417XRuXmlQyDsWI/view?usp=drivesdk then instal node.js in termux without a comand... here to more, use chatgpt. chatgpt.com   .every device, have his owns sistem. ---- --------
+Arq-- Please, if you like to instal the program in android, first, instal F-Droid then, search termux, then instal node.js and in termux without a comand bash```pkg update && pkg upgrade -y
+pkg install nodejs -y ... here to more, use chatgpt. chatgpt.com. ---- --------
