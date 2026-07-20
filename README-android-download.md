@@ -32,8 +32,8 @@ npm -v
 ## Clone the project
 
 ```bash
-git clone <YOUR_REPOSITORY_URL>
-cd <YOUR_PROJECT_FOLDER>
+git clone <https://github.com/eitfabrizio/sapflight-ai/edit/Aplication/README-android-download.md>
+cd <sapflight-ai>
 ```
 
 ## Install dependencies
