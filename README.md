@@ -105,3 +105,7 @@ Then restart the server and make sure your AI model is running correctly.
 Sapflight-AI is a custom AI project developed by **Fabrizio**.
 
 Permission from the author is required before copying, redistributing, or using substantial parts of this project.
+
+---
+
+## 
