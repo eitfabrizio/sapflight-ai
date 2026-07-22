@@ -42,27 +42,19 @@ cd <sapflight-ai>
 npm install
 ```
 
-## Start the project
-
-If your project uses:
-
-```bash
-npm start
-```
-
-or
-
-```bash
-npm run dev
-```
-
-or
+and
 
 ```bash
 npm run build
 ```
 
-(depending on your project).
+
+## Start the project
+
+
+```bash
+npm start
+```
 
 ## Notes
 
