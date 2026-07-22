@@ -64,4 +64,4 @@ npm start
   ```
 - If a package fails to install, ensure you're using the latest version of Termux from **F-Droid**, not the Google Play Store.
 - I recomed use the lts version for this proyect, and the asinstence of chatgpt.
-- I will going to do a version to android
+- I will going to do a version to android.
